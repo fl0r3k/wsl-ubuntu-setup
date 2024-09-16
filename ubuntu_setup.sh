@@ -16,7 +16,7 @@ sudo apt install -y \
 	curl \
 	fd-find \
 	fzf \
-	git \
+
 	jq \
 	libbz2-dev \
 	libffi-dev \
@@ -67,7 +67,7 @@ wget -O /tmp/bw-linux.zip "https://vault.bitwarden.com/download/?app=cli&platfor
 sudo unzip /tmp/bw-linux.zip -d /usr/local/bin
 
 # Change shell to zsh
-sudo usermod -s zsh $USER_NAME
+sudo usermod -s $(which zsh) $USER_NAME
 
 # Get and setup dotfiles
 rm -rf .dotfiles
@@ -79,6 +79,8 @@ cd
 # Install oh-my-zsh
 rm -rf ~/.oh-my-zsh
 RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 
 # Tmux Plugin Manager and setup
 rm -rf ~/.config/tmux/plugins
