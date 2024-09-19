@@ -16,7 +16,6 @@ sudo apt install -y \
 	curl \
 	fd-find \
 	fzf \
-
 	jq \
 	libbz2-dev \
 	libffi-dev \
