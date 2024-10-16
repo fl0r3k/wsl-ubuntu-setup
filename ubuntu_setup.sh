@@ -37,6 +37,7 @@ sudo apt install -y \
 	unzip \
 	xz-utils \
 	zlib1g-dev \
+	zoxide \
 	zsh
 
 # pyenv
@@ -59,6 +60,11 @@ git clone https://github.com/nvm-sh/nvm.git .nvm
 export NVM_DIR="$HOME/.nvm"
 . "$NVM_DIR/nvm.sh"
 nvm install node
+
+# go
+wget -O /tmp/go.tar.gz "https://go.dev/dl/go1.23.2.linux-amd64.tar.gz"
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf /tmp/go.tar.gz
 
 # bitwarden-cli
 sudo rm -f /usr/local/bin/bw
