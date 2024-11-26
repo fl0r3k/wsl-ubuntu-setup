@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USER_NAME=`whoami`
+USER_NAME=$(whoami)
 
 # Add package repositories
 sudo add-apt-repository -r -y -n ppa:neovim-ppa/unstable
@@ -12,33 +12,33 @@ sudo apt upgrade -y
 
 # Install packages
 sudo apt install -y \
-	build-essential \
-	curl \
-	fd-find \
-	fzf \
-	jq \
-	libbz2-dev \
-	libffi-dev \
-	liblzma-dev \
-	libncursesw5-dev \
-	libreadline-dev \
-	libsqlite3-dev \
-	libssl-dev \
-	libxml2-dev \
-	libxmlsec1-dev \
-	neovim \
-	python3 \
-	python3-pip \
-	python-is-python3 \
-	ripgrep \
-	stow \
-	tk-dev \
-	tmux \
-	unzip \
-	xz-utils \
-	zlib1g-dev \
-	zoxide \
-	zsh
+  build-essential \
+  curl \
+  fd-find \
+  fzf \
+  jq \
+  libbz2-dev \
+  libffi-dev \
+  liblzma-dev \
+  libncursesw5-dev \
+  libreadline-dev \
+  libsqlite3-dev \
+  libssl-dev \
+  libxml2-dev \
+  libxmlsec1-dev \
+  neovim \
+  python3 \
+  python3-pip \
+  python-is-python3 \
+  ripgrep \
+  stow \
+  tk-dev \
+  tmux \
+  unzip \
+  xz-utils \
+  zlib1g-dev \
+  zoxide \
+  zsh
 
 # pyenv
 rm -rf ~/.pyenv
@@ -93,6 +93,5 @@ git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/.
 rm -rf ~/.config/tmux/plugins
 git clone https://github.com/tmux-plugins/tpm.git ~/.config/tmux/plugins/tpm
 ~/.config/tmux/plugins/tpm/scripts/install_plugins.sh
-
 
 echo "Installation complete. Restart terminal to reload environment"
