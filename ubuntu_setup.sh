@@ -60,13 +60,19 @@ export NVM_DIR="$HOME/.nvm"
 . "$NVM_DIR/nvm.sh"
 nvm install node
 
-# go
+# Go
 wget -O /tmp/go.tar.gz "https://go.dev/dl/go1.23.2.linux-amd64.tar.gz"
 sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf /tmp/go.tar.gz
 
 # go tools
 go install github.com/junegunn/fzf@latest
+
+# Terraform
+wget -O /tmp/terraform.zip https://releases.hashicorp.com/terraform/1.9.8/terraform_1.9.8_linux_amd64.zip
+unzip /tmp/terraform.zip -d /tmp/terraform
+sudo cp /tmp/terraform/terraform /usr/local/bin/terraform
+rm -rf /tmp/terraform
 
 # bitwarden-cli
 sudo rm -f /usr/local/bin/bw
