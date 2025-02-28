@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+TEMPDIR="/tmp/lazygit-$VERSION"
+
+sudo rm /usr/local/bin/lazygit 2>/dev/null
+mkdir -p "$TEMPDIR"
+cd "$TEMPDIR" || return
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${VERSION}/lazygit_${VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit -D -t /usr/local/bin/
+rm -rf "$TEMPDIR"

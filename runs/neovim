@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+VERSION=v0.10.4
+TEMPDIR="/tmp/neovim-$VERSION"
+
+# uninstall
+sudo rm /usr/local/bin/nvim 2>/dev/null
+sudo rm -r /usr/local/share/nvim/ 2>/dev/null
+
+# clean local state
+rm -rf ~/.local/share/nvim
+rm -rf ~/.local/state/nvim
+rm -rf ~/.cache/nvim
+
+sudo rm -rf "$TEMPDIR"
+git clone -b "$VERSION" https://github.com/neovim/neovim.git "$TEMPDIR"
+sudo apt install -y cmake gettext lua5.4
+
+cd "$TEMPDIR" || return
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+
+sudo rm -rf "$TEMPDIR"

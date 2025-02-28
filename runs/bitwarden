@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+sudo rm -f /usr/local/bin/bw
+wget -O /tmp/bw-linux.zip "https://vault.bitwarden.com/download/?app=cli&platform=linux"
+sudo unzip /tmp/bw-linux.zip -d /usr/local/bin
+rm /tmp/bw-linux.zip

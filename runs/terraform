@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+VERSION=1.9.8
+ARCHIVE_NAME="terraform_${VERSION}_linux_amd64.zip"
+
+wget -O "/tmp/$ARCHIVE_NAME" "https://releases.hashicorp.com/terraform/$VERSION/$ARCHIVE_NAME"
+sudo apt install -y unzip
+unzip "/tmp/$ARCHIVE_NAME" -d "/tmp/terraform-$VERSION"
+sudo cp /tmp/terraform-$VERSION/terraform /usr/local/bin/terraform
+rm -rf /tmp/terraform

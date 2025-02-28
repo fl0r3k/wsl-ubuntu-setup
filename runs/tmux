@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+VERSION=3.5a
+TEMPDIR="/tmp/tmux-$VERSION"
+
+#rm -rf ~/.config/tmux
+
+sudo rm -rf "$TEMPDIR"
+git clone -b "$VERSION" https://github.com/tmux/tmux.git "$TEMPDIR"
+#sudo apt install -y automake yacc libevent-dev libncurses5-dev libncursesw5-dev
+sudo apt install -y automake libevent-dev ncurses-dev build-essential bison pkg-config
+cd "$TEMPDIR" || return
+sh autogen.sh
+./configure && make
+sudo make install
+
+rm -rf ~/.config/tmux/plugins
+git clone https://github.com/tmux-plugins/tpm.git ~/.config/tmux/plugins/tpm
