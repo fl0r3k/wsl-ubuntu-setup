@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+sudo apt install -y stow
+cd dotfiles || return
+ls -al
+stow -v .

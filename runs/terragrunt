@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+VERSION="v0.73.15"
+TEMPDIR="/tmp/terragrunt-$VERSION"
+#BINARY_NAME="terragrunt_linux_amd64"
+
+rm -rf "$TEMPDIR"
+
+# Download the binary
+#curl -L "https://github.com/gruntwork-io/terragrunt/releases/download/$VERSION/$BINARY_NAME" -o "/tmp/$BINARY_NAME"
+
+#sudo mv "/tmp/$BINARY_VERSION" /usr/local/bin/terragrunt
+
+git clone -b "$VERSION" https://github.com/gruntwork-io/terragrunt.git "$TEMPDIR"
+cd "$TEMPDIR" || return
+go build
+sudo cp "$TEMPDIR/terragrunt" /usr/local/bin/terragrunt
+rm -rf "$TEMPDIR"

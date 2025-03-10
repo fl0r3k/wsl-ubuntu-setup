@@ -2,14 +2,6 @@
 
 USER_NAME=$(whoami)
 
-# Add package repositories
-sudo add-apt-repository -r -y -n ppa:neovim-ppa/unstable
-sudo add-apt-repository -y -n ppa:neovim-ppa/unstable
-
-# Ugrade all installed packages
-sudo apt update
-sudo apt upgrade -y
-
 # Install packages
 sudo apt install -y \
   build-essential \
@@ -80,15 +72,9 @@ wget -O /tmp/bw-linux.zip "https://vault.bitwarden.com/download/?app=cli&platfor
 sudo unzip /tmp/bw-linux.zip -d /usr/local/bin
 
 # Change shell to zsh
-sudo usermod -s $(which zsh) $USER_NAME
+#sudo usermod -s $(which zsh) $USER_NAME
 
 # Get and setup dotfiles
-rm -rf .dotfiles
-git clone git@github.com:fl0r3k/dotfiles.git .dotfiles
-cd .dotfiles
-stow .
-cd
-
 # Install oh-my-zsh
 rm -rf ~/.oh-my-zsh
 RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -96,10 +82,5 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ~/.oh-my-zsh/plugins/fast-syntax-highlighting
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/.oh-my-zsh/plugins/zsh-autocomplete
-
-# Tmux Plugin Manager and setup
-rm -rf ~/.config/tmux/plugins
-git clone https://github.com/tmux-plugins/tpm.git ~/.config/tmux/plugins/tpm
-~/.config/tmux/plugins/tpm/scripts/install_plugins.sh
 
 echo "Installation complete. Restart terminal to reload environment"
