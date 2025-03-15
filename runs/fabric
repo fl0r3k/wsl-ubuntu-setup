@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+rm -f /tmp/fabric
+
+curl -L https://github.com/danielmiessler/fabric/releases/latest/download/fabric-linux-amd64 >/tmp/fabric
+
+sudo cp /tmp/fabric /usr/local/bin/fabric
+
+sudo chmod +x /usr/local/bin/fabric
+
+sudo rm -f /tmp/fabric
