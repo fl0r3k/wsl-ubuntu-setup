@@ -3,4 +3,5 @@
 sudo apt install -y stow
 cd dotfiles || return
 ls -al
-stow -v .
+echo $(pwd)
+stow --restow --verbose -d "$(pwd)" -t "$HOME" .
