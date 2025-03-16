@@ -72,7 +72,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(docker gcloud git tmux zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zoxide zsh-autocomplete)
 
-ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART=false
 
 ZOXIDE_CMD_OVERRIDE=cmd
 

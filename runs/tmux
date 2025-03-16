@@ -13,6 +13,3 @@ cd "$TEMPDIR" || return
 sh autogen.sh
 ./configure && make
 sudo make install
-
-rm -rf ~/.config/tmux/plugins
-git clone https://github.com/tmux-plugins/tpm.git ~/.config/tmux/plugins/tpm
