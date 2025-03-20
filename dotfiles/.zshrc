@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -65,18 +65,23 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+#
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(docker gcloud git tmux zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zoxide zsh-autocomplete)
+plugins=(docker gcloud git tmux zoxide zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete)
 
-ZSH_TMUX_AUTOSTART=false
+ZSH_TMUX_AUTOSTART=true
 
 ZOXIDE_CMD_OVERRIDE=cmd
 
 source $ZSH/oh-my-zsh.sh
+
+
+# now load zsh-syntax-highlighting plugin
 
 # User configuration
 
@@ -126,6 +131,3 @@ export PATH=$PATH:~/go/bin
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-#
-# user local bin
-export PATH="/home/fl0r3k/.local/bin:$PATH"

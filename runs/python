@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-PYENV_VERSION=2.5.3
+PYENV_VERSION=v2.5.3
 PYTHON_VERSION=3.13
 
 # pyenv
 rm -rf ~/.pyenv
-git clone -c "$PYENV_VERSION" https://github.com/pyenv/pyenv.git ~/.pyenv
+git clone --depth 1 --branch "$PYENV_VERSION" https://github.com/pyenv/pyenv.git ~/.pyenv
 cd ~/.pyenv && src/configure && make -C src
 
 # python
