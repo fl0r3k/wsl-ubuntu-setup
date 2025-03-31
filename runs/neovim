@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION=v0.10.4
+VERSION=v0.11.0
 TEMPDIR="/tmp/neovim-$VERSION"
 
 # uninstall
