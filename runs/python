@@ -3,7 +3,9 @@
 PYENV_VERSION=v2.5.3
 PYTHON_VERSION=3.13
 
-# pyenv
+sudo apt install -y build-essential zlib1g-dev libssl-dev liblzma-dev tk-dev libsqlite3-dev libreadline-dev libffi-dev
+
+#pyenv
 rm -rf ~/.pyenv
 git clone --depth 1 --branch "$PYENV_VERSION" https://github.com/pyenv/pyenv.git ~/.pyenv
 cd ~/.pyenv && src/configure && make -C src
